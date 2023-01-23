@@ -1,14 +1,16 @@
 import React from "react";
-
+import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Navbar from "./Components/navbar";
 import Login from "./Pages/login";
+import Dashboard from "./Pages/dashboard";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Login />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </div>
   );
 }
