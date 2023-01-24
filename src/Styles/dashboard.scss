@@ -1,3 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
 .main-page {
   display: flex;
+  font-family: "Work Sans";
+}
+
+.boxes-container {
+  display: flex;
+  text-align: left;
+  thead {
+    text-align: left;
+  }
+  th {
+    text-align: left;
+  }
+  .box-title {
+    font-size: 14px;
+    font-weight: 500px;
+    color: #545f7d;
+  }
+
+  .boxes {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    margin: 0 13px;
+    border-radius: 4px;
+    width: 240px;
+    height: 160px;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    .figure {
+      font-weight: 600;
+      font-size: 24px;
+      color: #213f7d;
+    }
+  }
+  div {
+    margin-left: 30px;
+  }
+}
+
+.table-container {
+  width: 1037px;
+  height: 640px;
+  border-radius: 4px;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  margin-top: 40px;
+  margin-left: 20px;
+  .header-titles {
+    font-size: 12px;
+    color: #545f7d;
+  }
+  tbody {
+    font-size: 14px;
+    color: #545f7d;
+    text-align: left;
+  }
+  td {
+    border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+  }
+  #moreOptions {
+    cursor: pointer;
+  }
+}
+
+.filter-next-section {
+  display: flex;
+  justify-content: space-between;
+  .pagination {
+    display: flex;
+  }
 }
