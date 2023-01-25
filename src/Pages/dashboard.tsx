@@ -13,6 +13,7 @@ import Axios from "axios";
 
 function Dashboard() {
   const [users, setUsers] = useState<any[]>([]);
+  const [numLimit, setNumLimit] = useState<number>(100);
 
   useEffect(() => {
     Axios.get(
@@ -25,7 +26,15 @@ function Dashboard() {
       .catch((err) => console.log(err));
   }, []);
 
-  //   const formattedDate =
+  let filteredUsers = users.slice(0, numLimit);
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setNumLimit(parseInt(event.target.value));
+  };
+
+  const handleOptionClick = (event: React.MouseEvent<HTMLOptionElement>) => {
+    console.log("works");
+  };
 
   return (
     <div>
@@ -78,7 +87,32 @@ function Dashboard() {
               </thead>
 
               <tbody>
-                {users.map((user) => (
+                {/* {users.map((user) => (
+                  <tr key={user.id}>
+                    <td>{user.orgName}</td>
+                    <td>{user.userName}</td>
+                    <td>{user.email}</td>
+                    <td>{user.phoneNumber}</td>
+                    <td>
+                      {new Date(user.createdAt).toLocaleString("en-US", {
+                        timeZone: "UTC",
+                        hour12: true,
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        // second: "numeric",
+                      })}
+                    </td>
+                    <td>placehold</td>
+                    <td id="moreOptions">
+                      <img src={moreOptions} alt="" />
+                    </td>
+                  </tr>
+                ))} */}
+
+                {filteredUsers.map((user) => (
                   <tr key={user.id}>
                     <td>{user.orgName}</td>
                     <td>{user.userName}</td>
@@ -109,9 +143,9 @@ function Dashboard() {
               <div>
                 <p>
                   Showing
-                  <select>
+                  <select onChange={handleChange}>
                     <option>10</option>
-                    <option>20</option>
+                    <option onClick={handleOptionClick}>20</option>
                     <option>30</option>
                     <option>40</option>
                     <option>50</option>
