@@ -42,6 +42,10 @@
   }
 }
 
+.filter-icon {
+  cursor: pointer;
+}
+
 .table-container {
   width: 1037px;
   height: 640px;
@@ -60,6 +64,7 @@
   }
   td {
     border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+    padding: 23px 0;
   }
   #moreOptions {
     cursor: pointer;

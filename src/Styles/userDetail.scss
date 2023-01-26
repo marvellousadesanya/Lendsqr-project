@@ -1,0 +1,48 @@
+$base-color: #39cdcc;
+
+.main-page {
+  display: flex;
+
+  .user-details-text {
+    display: flex;
+    width: 1037px;
+    justify-content: space-between;
+    .activate-blacklist-btns {
+      display: flex;
+      height: 40px;
+      gap: 30px;
+      #activate-btn {
+        color: $base-color;
+        width: 170px;
+        background-color: transparent;
+        border: 1px solid $base-color;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      #blacklist-btn {
+        color: #e4033b;
+        width: 170px;
+        border: 1px solid #e4033b;
+        border-radius: 8px;
+        background-color: transparent;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+  .brief-info-section {
+    width: 1037px;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    .name-account-section {
+      display: flex;
+      gap: 60px;
+    }
+    .more-info {
+      display: flex;
+      gap: 80px;
+    }
+  }
+}
