@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Login from "./Pages/login";
 import Dashboard from "./Pages/dashboard";
-import UserDetail from "./Pages/userDetail";
+// import UserDetail from "./Pages/userDetail";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/userdetail/:id" element={<UserDetail />} />
+        {/* <Route path="/userdetail/:id" element={<UserDetail />} /> */}
         {/* <Route path="/userdetail" element={<UserDetail />} /> */}
       </Routes>
     </div>

@@ -1,9 +1,13 @@
 import "../Styles/menu.scss";
 import arrowDown from "../Images/arrow-down.svg";
 
-function Menu() {
+interface SideBarProp {
+  width: number;
+}
+
+const Menu: React.FC<SideBarProp> = ({ width }) => {
   return (
-    <div className="menu">
+    <div className="menu" style={{ width: `${width}px !important` }}>
       <div className="upper-menu-section">
         <div className="switch">
           <p>Switch Organization</p>
@@ -53,6 +57,6 @@ function Menu() {
       </div>
     </div>
   );
-}
+};
 
 export default Menu;

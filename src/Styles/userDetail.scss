@@ -2,10 +2,14 @@ $base-color: #39cdcc;
 
 .main-page {
   display: flex;
+  color: #213f7d;
+  #profile-img {
+    border-radius: 50%;
+  }
 
   .user-details-text {
     display: flex;
-    width: 1037px;
+    // width: 1037px;
     justify-content: space-between;
     .activate-blacklist-btns {
       display: flex;
@@ -32,10 +36,11 @@ $base-color: #39cdcc;
     }
   }
   .brief-info-section {
-    width: 1037px;
+    // width: 1037px;
     border: 1px solid rgba(33, 63, 125, 0.06);
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
+    padding: 15px 15px 0 15px;
     .name-account-section {
       display: flex;
       gap: 60px;
@@ -43,6 +48,65 @@ $base-color: #39cdcc;
     .more-info {
       display: flex;
       gap: 80px;
+    }
+  }
+  .details-section {
+    background: #ffffff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    margin-top: 20px;
+    padding: 20px;
+    .user-details-general-styling {
+      display: flex;
+      gap: 100px;
+    }
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (width <= 600px) {
+  .page-for-content {
+    overflow: hidden;
+    width: 100vw;
+    .brief-info-section {
+      width: 100vw;
+    }
+    #header-for-details-page {
+      font-size: 18px;
+    }
+    #activate-btn,
+    #blacklist-btn {
+      width: 100px !important;
+      font-size: 9px !important;
+    }
+    .brief-info-section {
+      width: 90vw;
+      gap: 5px;
+      .name-account-section {
+        display: flex;
+        gap: 8px;
+        font-size: 12px;
+      }
+      #profile-img {
+        width: 70px;
+      }
+      .more-info {
+        width: 700px;
+        font-size: 10px;
+        gap: 8px;
+      }
+    }
+    .details-section {
+      width: 90vw;
+      .user-details-general-styling {
+        font-size: 12px;
+        gap: 5px;
+        #personal-email {
+          width: 40px;
+          overflow-wrap: break-word;
+        }
+      }
     }
   }
 }

@@ -5,6 +5,10 @@ nav {
   margin: 0 30px;
   z-index: 2;
   justify-content: space-between;
+  #hamburger-icon {
+    width: 30px;
+    display: none;
+  }
   .profile-section {
     display: flex;
     align-items: center;
@@ -32,5 +36,26 @@ nav {
   }
   #navbarlogo {
     height: 30px;
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (width <= 600px) {
+  .navbar {
+    justify-content: space-between;
+    gap: 40px;
+    .profile-section {
+      gap: 4px;
+    }
+    #hamburger-icon {
+      width: 30px;
+      display: block;
+    }
+    #search {
+      display: none;
+    }
+    .not-for-mobile {
+      display: none;
+    }
   }
 }

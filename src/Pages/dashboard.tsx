@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ModalMenu from "../Components/moreOptions";
 import Axios from "axios";
 
 // Style
@@ -19,7 +20,12 @@ import filterIcon from "../Images/filter-icon.svg";
 import nextBtn from "../Images/next-btn.svg";
 import prevBtn from "../Images/prev-btn.svg";
 
-function Dashboard() {
+interface ParentProps {}
+interface WidthState {
+  width: number;
+}
+
+const Dashboard: React.FC<ParentProps> = () => {
   // API call
   useEffect(() => {
     Axios.get(
@@ -35,6 +41,9 @@ function Dashboard() {
   const [users, setUsers] = useState<any[]>([]);
   const [numLimit, setNumLimit] = useState<number>(10); // sets number of users to show
   const [modalFilter, setModalFilter] = useState<boolean>(false); //shows modal window onclick
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalStyles, setModalStyles] = useState({});
+  const [width, setWidth] = useState<WidthState["width"]>(0); //width of side menu
 
   // Code block to segment list in dropdown menu
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -44,39 +53,58 @@ function Dashboard() {
     console.log("works");
   };
 
+  // const activeUsers = new Date(users.createdAt) > new Date("2020-12-31");
+
+  const handleOpenModal = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    setModalStyles({
+      left: `${x}px`,
+      top: `${y}px`,
+    });
+    setModalIsOpen(true);
+  };
+
+  const handleWidthChange = () => {
+    setWidth(500);
+    console.log("check");
+  };
+
   let filteredUsers = users.slice(0, numLimit); // The Variable that holds the filtered list
 
   return (
     <div>
-      <Navbar />
+      <Navbar onWidthChange={handleWidthChange} />
       <div className="main-page">
-        <Sidebar />
-        <div>
+        <Sidebar width={width} />
+        <div className="other-area">
           <h2>Users</h2>
           <div className="boxes-container">
             <div className="boxes">
-              <div>
+              <div className="inner-box">
                 <img src={icon1} alt="icon" />
                 <h3 className="box-title">USERS</h3>
                 <p className="figure">{users.length}</p>
               </div>
             </div>
             <div className="boxes">
-              <div>
+              <div className="inner-box">
                 <img src={icon2} alt="icon" />
                 <h3 className="box-title">ACTIVE USERS</h3>
-                <p className="figure">2,453</p>
+                <p className="figure">12,000</p>
               </div>
             </div>
             <div className="boxes">
-              <div>
+              <div className="inner-box">
                 <img src={icon3} alt="icon" />
                 <h3 className="box-title">USERS WITH LOANS</h3>
                 <p className="figure">12,453</p>
               </div>
             </div>
             <div className="boxes">
-              <div>
+              <div className="inner-box">
                 <img src={icon4} alt="icon" />
                 <h3 className="box-title">USERS WITH SAVINGS</h3>
                 <p className="figure">102,453</p>
@@ -139,9 +167,26 @@ function Dashboard() {
                         minute: "2-digit",
                       })}
                     </td>
-                    <td>placehold</td>
+                    {/* If the date returned was before 2020, user is inactive */}
+                    <td id="status">
+                      {new Date(user.createdAt) < new Date("2020-12-31")
+                        ? "Inactive"
+                        : "Active"}
+                    </td>
                     <td id="moreOptions">
-                      <img src={moreOptions} alt="" />
+                      :
+                      {/* <img
+                        id="more-options-menu"
+                        src={moreOptions}
+                        alt=""
+                        onClick={handleOpenModal}
+                      />
+                      {modalIsOpen && (
+                        <ModalMenu
+                          style={modalStyles}
+                          onClose={() => setModalIsOpen(false)}
+                        />
+                      )} */}
                     </td>
                   </tr>
                 ))}
@@ -181,6 +226,6 @@ function Dashboard() {
       </div>
     </div>
   );
-}
+};
 
 export default Dashboard;

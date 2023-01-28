@@ -1,5 +1,16 @@
-function MoreOptions() {
-  return <div></div>;
+import React, { FC } from "react";
+
+interface Props {
+  onClose: () => void;
+  style: {};
 }
 
-export default MoreOptions;
+const ModalMenu: FC<Props> = ({ onClose, style }) => {
+  return (
+    <div className="modal-menu">
+      <p>Test</p>
+    </div>
+  );
+};
+
+export default ModalMenu;

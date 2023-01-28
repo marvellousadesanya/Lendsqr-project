@@ -3,7 +3,8 @@
 .menu {
   font-family: "Work Sans";
   height: 1695px;
-  width: 283px;
+  width: 223px;
+  margin-right: 40px;
   color: #213f7d;
   text-align: left;
   padding-left: 30px;
@@ -54,3 +55,19 @@
     margin-top: 40px;
   }
 }
+
+/* MOBILE RESPONSIVENESS */
+// @media (width <= 600px) {
+//   .menu {
+//     /* Style away! */
+//     width: 0;
+//     height: 900px;
+//     overflow-x: visible;
+//     overflow-y: scroll;
+//     background-color: red;
+//     // overflow: hidden;
+//     padding: 0;
+//     margin: 0;
+//     transition: 1px;
+//   }
+// }
