@@ -23,6 +23,7 @@ import prevBtn from "../Images/prev-btn.svg";
 interface ParentProps {}
 interface WidthState {
   width: number;
+  overflow: string;
 }
 
 const Dashboard: React.FC<ParentProps> = () => {
@@ -43,7 +44,8 @@ const Dashboard: React.FC<ParentProps> = () => {
   const [modalFilter, setModalFilter] = useState<boolean>(false); //shows modal window onclick
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalStyles, setModalStyles] = useState({});
-  const [width, setWidth] = useState<WidthState["width"]>(0); //width of side menu
+  const [width, setWidth] = useState<WidthState["width"]>(223); //width of side menu
+  const [overflow, setOverflow] = useState("hidden");
 
   // Code block to segment list in dropdown menu
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -67,18 +69,18 @@ const Dashboard: React.FC<ParentProps> = () => {
     setModalIsOpen(true);
   };
 
-  const handleWidthChange = () => {
-    setWidth(500);
-    console.log("check");
+  const toggleWidth = () => {
+    setWidth(width === 0 ? 230 : 0);
+    setOverflow(width === 0 ? "visible" : "hidden");
   };
 
   let filteredUsers = users.slice(0, numLimit); // The Variable that holds the filtered list
 
   return (
     <div>
-      <Navbar onWidthChange={handleWidthChange} />
+      <Navbar onButtonClick={toggleWidth} />
       <div className="main-page">
-        <Sidebar width={width} />
+        <Sidebar overflow={overflow} width={width} />
         <div className="other-area">
           <h2>Users</h2>
           <div className="boxes-container">

@@ -3,11 +3,26 @@ import arrowDown from "../Images/arrow-down.svg";
 
 interface SideBarProp {
   width: number;
+  overflow: string;
 }
 
-const Menu: React.FC<SideBarProp> = ({ width }) => {
+const Menu: React.FC<SideBarProp> = ({ width, overflow }) => {
+  console.log(width);
+
   return (
-    <div className="menu" style={{ width: `${width}px !important` }}>
+    <div
+      className="menu"
+      style={{
+        width: `${width}px`,
+
+        // marginRight: "100px",
+        overflow: `${overflow}`,
+        margin: "0",
+        padding: "0",
+        // position: "absolute",
+        transition: "0.5s",
+      }}
+    >
       <div className="upper-menu-section">
         <div className="switch">
           <p>Switch Organization</p>

@@ -7,21 +7,21 @@ import arrow from "../Images/arrow.svg";
 import hamburgerIcon from "../Images/hamburger.png";
 
 interface NavbarProp {
-  onWidthChange: () => void;
+  onButtonClick: () => void;
 }
 
-const Navbar: React.FC<NavbarProp> = ({ onWidthChange }) => {
+const Navbar: React.FC<NavbarProp> = ({ onButtonClick }) => {
   return (
     <nav className="navbar">
       <img
         src={hamburgerIcon}
         id="hamburger-icon"
         alt=""
-        onClick={onWidthChange}
+        onClick={onButtonClick}
       />
       <img src={logo} alt="logo" id="navbarlogo" />
       <div id="search">
-        <input type="text" placeholder="search for anything" />
+        <input type="text" placeholder="Search for anything" />
         <button className="btn">
           <img src={searchIcon} alt="search" />
         </button>
