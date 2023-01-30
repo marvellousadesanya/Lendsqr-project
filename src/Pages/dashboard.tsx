@@ -70,7 +70,7 @@ const Dashboard: React.FC<ParentProps> = () => {
   };
 
   const toggleWidth = () => {
-    setWidth(width === 0 ? 230 : 0);
+    setWidth(width === 0 ? 240 : 0);
     setOverflow(width === 0 ? "visible" : "hidden");
   };
 
@@ -176,19 +176,13 @@ const Dashboard: React.FC<ParentProps> = () => {
                         : "Active"}
                     </td>
                     <td id="moreOptions">
-                      :
-                      {/* <img
-                        id="more-options-menu"
-                        src={moreOptions}
-                        alt=""
-                        onClick={handleOpenModal}
-                      />
+                      <img id="more-options-menu" src={moreOptions} alt="" />
                       {modalIsOpen && (
                         <ModalMenu
                           style={modalStyles}
                           onClose={() => setModalIsOpen(false)}
                         />
-                      )} */}
+                      )}
                     </td>
                   </tr>
                 ))}

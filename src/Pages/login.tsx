@@ -16,6 +16,7 @@ function Login() {
             </div>
           </div>
         </div>
+        
         <div className="form-container">
           <div>
             <div>
@@ -33,7 +34,11 @@ function Login() {
               </div>
 
               <p className="forgot">FORGOT PASSWORD?</p>
-              <button className="login">LOG IN</button>
+              <a href="/dashboard">
+                <button className="login" type="submit">
+                  LOG IN
+                </button>
+              </a>
             </div>
           </div>
         </div>

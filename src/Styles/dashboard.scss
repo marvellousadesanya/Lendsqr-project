@@ -28,7 +28,7 @@
     margin: 0 13px;
     padding: 10px;
     border-radius: 4px;
-    width: 240px;
+    width: 220px;
     height: 160px;
     border: 1px solid rgba(33, 63, 125, 0.06);
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
@@ -86,6 +86,7 @@
   .main-page {
     display: flex;
     font-family: "Work Sans";
+    overflow: hidden;
 
     .boxes-container {
       display: grid;
