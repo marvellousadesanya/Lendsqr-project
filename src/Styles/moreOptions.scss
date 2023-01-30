@@ -1,3 +1,13 @@
-.options-container {
-  background-color: red;
+.modal-menu {
+  position: absolute;
+  padding-left: 26px;
+  padding-top: 26px;
+  font-size: 14px;
+  right: 50px;
+  width: 180px;
+  height: 130px;
+  background: #ffffff;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
 }

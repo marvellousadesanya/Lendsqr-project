@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ModalMenu from "../Components/moreOptions";
+import MoreOptionBtn from "../Components/moreOptionsBtn";
 import Axios from "axios";
 
 // Style
@@ -15,7 +15,6 @@ import icon1 from "../Images/user-icon.svg";
 import icon2 from "../Images/active-users-icon.svg";
 import icon3 from "../Images/users-with-loan-icon.svg";
 import icon4 from "../Images/users-with-savings-icon.svg";
-import moreOptions from "../Images/more-options.svg";
 import filterIcon from "../Images/filter-icon.svg";
 import nextBtn from "../Images/next-btn.svg";
 import prevBtn from "../Images/prev-btn.svg";
@@ -42,10 +41,9 @@ const Dashboard: React.FC<ParentProps> = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [numLimit, setNumLimit] = useState<number>(10); // sets number of users to show
   const [modalFilter, setModalFilter] = useState<boolean>(false); //shows modal window onclick
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalStyles, setModalStyles] = useState({});
+
   const [width, setWidth] = useState<WidthState["width"]>(223); //width of side menu
-  const [overflow, setOverflow] = useState("hidden");
+  const [overflow, setOverflow] = useState("hidden"); // For mobile side menu
 
   // Code block to segment list in dropdown menu
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -55,22 +53,9 @@ const Dashboard: React.FC<ParentProps> = () => {
     console.log("works");
   };
 
-  // const activeUsers = new Date(users.createdAt) > new Date("2020-12-31");
-
-  const handleOpenModal = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    setModalStyles({
-      left: `${x}px`,
-      top: `${y}px`,
-    });
-    setModalIsOpen(true);
-  };
-
+  // Code block that toggles the side menu on mobile
   const toggleWidth = () => {
-    setWidth(width === 0 ? 240 : 0);
+    setWidth(width === 0 ? 210 : 0);
     setOverflow(width === 0 ? "visible" : "hidden");
   };
 
@@ -87,6 +72,7 @@ const Dashboard: React.FC<ParentProps> = () => {
             <div className="boxes">
               <div className="inner-box">
                 <img src={icon1} alt="icon" />
+                {/* Number of actual users from API */}
                 <h3 className="box-title">USERS</h3>
                 <p className="figure">{users.length}</p>
               </div>
@@ -176,13 +162,7 @@ const Dashboard: React.FC<ParentProps> = () => {
                         : "Active"}
                     </td>
                     <td id="moreOptions">
-                      <img id="more-options-menu" src={moreOptions} alt="" />
-                      {modalIsOpen && (
-                        <ModalMenu
-                          style={modalStyles}
-                          onClose={() => setModalIsOpen(false)}
-                        />
-                      )}
+                      <MoreOptionBtn id={user.id} />
                     </td>
                   </tr>
                 ))}

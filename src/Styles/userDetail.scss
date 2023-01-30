@@ -44,10 +44,22 @@ $base-color: #39cdcc;
     .name-account-section {
       display: flex;
       gap: 60px;
+      align-items: flex-start;
     }
     .more-info {
       display: flex;
       gap: 80px;
+      #general-details {
+        color: #39cdcc;
+        border-bottom-width: 8px;
+        border-bottom: #39cdcc;
+      }
+    }
+    #name,
+    #money {
+      font-size: 22px;
+      color: #213f7d;
+      font-weight: 500;
     }
   }
   .details-section {

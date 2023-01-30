@@ -2,7 +2,9 @@
 
 .menu {
   font-family: "Work Sans";
-  height: 1695px;
+  height: 100vh;
+  overflow-y: scroll;
+
   width: 223px;
   margin-right: 40px;
   color: #213f7d;

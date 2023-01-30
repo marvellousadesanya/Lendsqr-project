@@ -69,19 +69,22 @@ const UserDetail: React.FC<ParentProps> = () => {
                   />
                 </div>
                 <div>
-                  <p>Grace Effiong</p>
-                  <p>Hidikr</p>
+                  <p id="name">Grace Effiong</p>
+                  <p>neinn</p>
                 </div>
 
-                <p>User Tiers</p>
                 <div>
-                  <p>N200,000,000</p>
+                  <p>User Tiers</p>
+                </div>
+
+                <div>
+                  <p id="money">N200,000,000</p>
                   <p>Providus Bank</p>
                 </div>
               </div>
 
               <div className="more-info">
-                <p>Information</p>
+                <p id="general-details">General Details</p>
                 <p>Documentation</p>
                 <p>Bank details</p>
                 <p>Loans</p>
